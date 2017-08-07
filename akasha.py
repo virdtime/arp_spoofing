@@ -209,11 +209,13 @@ def tong(a_ip, b_ip):
     		ip=struct.unpack("!ss2s2s2sss2s4s4s",ipr)
 		l=(ord(ip[2][0])<<8)+ord(ip[2][1])+14
 		pvir=[]
+		pvi=[]
+		for i in range(4): pvi.append(ord(ip[7][i]))
 		for i in range(4): pvir.append(ord(ip[8][i]))
 		if cmp(a_ip,pvir)==0:
 			pac=make_packet(pocket[0],my_mac,a_mac,b_mac,l)
 			sock.send(pac)
-		if cmp(b_ip,pvir)==0:
+		if cmp(a_ip,pvi)==0:
 			pac=make_packet(pocket[0],my_mac,b_mac,a_mac,l)
 			sock.send(pac)
 	sock.close()
