@@ -210,7 +210,7 @@ def tong(a_ip, b_ip):
 		l=(ord(ip[2][0])<<8)+ord(ip[2][1])+14
 		pvir=[]
 		pvi=[]
-		for i in range(4): pvi.append(ord(ip[7][i]))
+		for i in range(4): pvi.append(ord(ip[9][i]))
 		for i in range(4): pvir.append(ord(ip[8][i]))
 		if cmp(a_ip,pvir)==0:
 			pac=make_packet(pocket[0],my_mac,a_mac,b_mac,l)
